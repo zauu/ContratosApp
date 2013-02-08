@@ -1,0 +1,27 @@
+<%- model_class = Contrato -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:clave) %>:</strong></dt>
+  <dd><%= @contrato.clave %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:contenido) %>:</strong></dt>
+  <dd><%= @contrato.contenido %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:cliente) %>:</strong></dt>
+  <dd><%= @contrato.cliente %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:audio) %>:</strong></dt>
+  <dd><%= @contrato.audio %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              contratos_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_contrato_path(@contrato), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              contrato_path(@contrato),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
